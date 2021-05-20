@@ -1,5 +1,7 @@
+from collections import deque
+
 quantity_of_water = int(input())
-names = []
+names = deque()
 
 while True:
     name = input()
@@ -9,14 +11,13 @@ while True:
 
 command = input()
 while command != "End":
-    if "refill" in command:
-        com, add_liters = command.split()
-        quantity_of_water += int(add_liters)
+    if command.startswith("refill"):
+        quantity_of_water += int(command.split()[-1])
     else:
         if quantity_of_water >= int(command):
             quantity_of_water -= int(command)
-            print(f"{names.pop(0)} got water")
+            print(f"{names.popleft()} got water")
         else:
-            print(f"{names.pop(0)} must wait")
+            print(f"{names.popleft()} must wait")
     command = input()
 print(f"{quantity_of_water} liters left")
