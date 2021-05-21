@@ -7,9 +7,9 @@ for _ in range(n):
         sequence.append(int(query[1]))
     elif query[0] == "2" and sequence:
         sequence.pop()
-    elif query[0] == "3":
+    elif query[0] == "3" and sequence:
         print(max(sequence))
-    elif query[0] == "4":
+    elif query[0] == "4" and sequence:
         print(min(sequence))
 
 reversed_sequence = []
