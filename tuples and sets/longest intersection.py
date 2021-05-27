@@ -1,20 +1,12 @@
 n = int(input())
 longest_inter = set()
 
-
-def set_in_range(start, end):
-    line = set()
-    for i in range(start, end + 1):
-        line.add(i)
-    return line
-
-
 for _ in range(n):
     first, second = input().split("-")
-    s_first, e_first = first.split(",")
-    s_second, e_second = second.split(",")
-    first_iter = set_in_range(int(s_first), int(e_first))
-    second_iter = set_in_range(int(s_second), int(e_second))
+    start_first, end_first = first.split(",")
+    start_second, end_second = second.split(",")
+    first_iter = set(range(int(start_first), int(end_first) + 1))
+    second_iter = set(range(int(start_second), int(end_second) + 1))
     if len(first_iter.intersection(second_iter)) > len(longest_inter):
         longest_inter = first_iter.intersection(second_iter)
 
