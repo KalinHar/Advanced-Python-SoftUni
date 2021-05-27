@@ -1,16 +1,13 @@
 contacts = {}
-names = []
 command = input()
 
-while not command.isdigit():
+while not command.isnumeric():
     name, phone = command.split("-")
     contacts[name] = phone
     command = input()
 
 for _ in range(int(command)):
-    names.append(input())
-
-for n in names:
+    n = input()
     if n not in contacts:
         print(f"Contact {n} does not exist.")
     else:
