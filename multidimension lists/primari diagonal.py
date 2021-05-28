@@ -2,8 +2,7 @@ n = int(input())
 matrix = []
 
 for r in range(n):
-    line = [int(x) for x in input().split()]
-    matrix.append(line)
+    matrix.append([int(x) for x in input().split()])
 
 diagonal_sum = 0
 for i in range(n):
