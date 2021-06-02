@@ -33,7 +33,7 @@ directions = {
 }
 bunnies = []
 alive = True
-# matrix = [[char for char in list(input())] for _ in range(rows)]
+
 matrix = []
 for i in range(rows):
     matrix.append([])
