@@ -1,17 +1,13 @@
-def in_matrix(r, c):
-    return 0 <= r < rows and 0 <= c < cols
-
-
 def move(r, c, direct):
     dif_r, dif_c = directions[direct]
     new_r, new_c = r + dif_r, c + dif_c
-    if in_matrix(new_r, new_c):
+    if 0 <= new_r < rows and 0 <= new_c < cols:
         return new_r, new_c
     return None
 
 
-def move_bunnies():
-    global win, bunnies
+def spread_bunnies():
+    global alive, bunnies
     new_bunnies = []
     while bunnies:
         bunny_r, bunny_c = bunnies.pop()
@@ -22,7 +18,7 @@ def move_bunnies():
                     matrix[bunny[0]][bunny[1]] = "B"
                     new_bunnies.append((bunny[0], bunny[1]))
                 elif matrix[bunny[0]][bunny[1]] == "P":
-                    win = False
+                    alive = False
                     matrix[bunny[0]][bunny[1]] = "B"
                     new_bunnies.append((bunny[0], bunny[1]))
     bunnies = new_bunnies
@@ -36,7 +32,7 @@ directions = {
     "L": (0, -1)
 }
 bunnies = []
-win = True
+alive = True
 # matrix = [[char for char in list(input())] for _ in range(rows)]
 matrix = []
 for i in range(rows):
@@ -55,25 +51,25 @@ for direction in commands:
     player_r, player_c = player
     player = move(player_r, player_c, direction)
     if not player:
-        win = True
+        alive = True
         matrix[player_r][player_c] = "."
         player = player_r, player_c
-        move_bunnies()
+        spread_bunnies()
         break
     elif matrix[player[0]][player[1]] == "B":
+        alive = False
         matrix[player_r][player_c] = "."
-        win = False
-        move_bunnies()
+        spread_bunnies()
         break
     else:
         matrix[player[0]][player[1]] = "P"
         matrix[player_r][player_c] = "."
-        move_bunnies()
-        if not win:
+        spread_bunnies()
+        if not alive:
             break
 
 [print("".join(row)) for row in matrix]
-if win:
+if alive:
     print(f"won: {' '.join([str(x) for x in player])}")
 else:
     print(f"dead: {' '.join([str(x) for x in player])}")
