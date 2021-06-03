@@ -1,4 +1,8 @@
 def palindromes(r, c):
+    # base = ord('a')
+    # first_letter = chr(base + r)
+    # second_letter = chr((base + r + c)
+    # return first_letter + second_letter + first_letter
     return chr(97 + r) + chr(97 + c + r) + chr(97 + r)
 
 
