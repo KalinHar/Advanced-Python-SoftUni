@@ -6,8 +6,11 @@ def operate(operator, *args):
         return reduce(lambda x, y: x+y, args)
     elif operator == "-":
         return reduce(lambda x, y: x-y, args)
-    if operator == "*":
+    elif operator == "*":
         return reduce(lambda x, y: x*y, args)
-    if operator == "/":
+    elif operator == "/":
         return reduce(lambda x, y: x/y, args)
 
+
+# def operate(operator, *args):
+#     return reduce(lambda x, y: eval(f"{x} {operator} {y}"), args)
