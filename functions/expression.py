@@ -6,6 +6,4 @@ def expression(nums, current_result=0, current_expression=''):
     expression(nums[1:], current_result-nums[0], f"{current_expression} - {nums[0]}")
 
 
-
-
 nums = [int(x) for x in input().split()]
