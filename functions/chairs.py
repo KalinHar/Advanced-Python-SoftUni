@@ -16,6 +16,6 @@ def combinations(names, count, current_names = []):
         current_names.pop()
 
 
-names = input().split()
+names = input().split(", ")
 n = int(input())
 combinations(names, n)

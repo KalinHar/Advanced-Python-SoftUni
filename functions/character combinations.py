@@ -7,7 +7,7 @@
 
 def permutations(names, count, current_names = []):
     if len(current_names) == count:
-        print(", ".join(current_names))
+        print("".join(current_names))
         return
 
     for i in range(len(names)):
@@ -17,6 +17,5 @@ def permutations(names, count, current_names = []):
 
 
 
-names = input().split()
-n = int(input())
-permutations(names, n)
+names = list(input())
+permutations(names, len(names))
