@@ -1,11 +1,10 @@
-def palindrome(word, index=0):
-    for i in range(len(word) // 2):
-        if word[index] == word[-(index + 1)]:
-            if index < len(word) // 2:
-                palindrome(word, index + 1)
-                return True
-            else:return True
-        else:return False
+def palindrome(word, index):
+    if word[index] != word[-(index + 1)]:
+        return False
+    elif word[index] == word[-(index + 1)] and index == len(word) // 2:
+        return True
+    else:
+        palindrome(word, index + 1)
 
     # if word[index] != word[-(index + 1)]:
     #     return f"{word} is not palindrome"

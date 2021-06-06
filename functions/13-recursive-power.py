@@ -1,11 +1,8 @@
-def recursive_power(num, power=0, current_result=1):
+def recursive_power(num, power):
     if power == 0:
-        print(current_result)
-        return
-    for _ in range(power):
-        current_result *= num
-        recursive_power(num, power-1, current_result)
-
+        return 1
+    else:
+        return num * recursive_power(num, power-1)
 
 
 print(recursive_power(2, 10))
