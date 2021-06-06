@@ -19,14 +19,26 @@ def push_mark(i, j, num):
     game_board[i][j] = num
 
 
+def print_board():
+    [print(row) for row in game_board]
+
+
+def check_for_winner():
+    pass
+
+
 r, c = [int(x) for x in input().split()]
-game_board = [[int(x) for x in list("0" * c)] for _ in range(r)]
+game_board = [[0 for col in range(c)] for row in range(r)]
 free_rows_in_column = [r-1 for _ in range(c)]
 turns = 1
 
 while True:
     row, col, mark = get_turn(turns, free_rows_in_column)
     free_rows_in_column[col] -= 1
-    turns += 1
     push_mark(row, col, mark)
-    [print(row) for row in game_board]
+    print_board()
+    if turns == r * c:
+        print("No winner!")
+        print_board()
+        break
+    turns += 1
