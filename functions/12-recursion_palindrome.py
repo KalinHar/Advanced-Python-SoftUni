@@ -1,10 +1,9 @@
 def palindrome(word, index):
-    if word[index] != word[-(index + 1)]:
-        return False
-    elif word[index] == word[-(index + 1)] and index == len(word) // 2:
-        return True
-    else:
-        palindrome(word, index + 1)
+    if index == len(word) // 2:
+        return f"{word} is a palindrome"
+    elif word[index] != word[-(index + 1)]:
+        return f"{word} is not palindrome"
+    return palindrome(word, index + 1)
 
     # if word[index] != word[-(index + 1)]:
     #     return f"{word} is not palindrome"
