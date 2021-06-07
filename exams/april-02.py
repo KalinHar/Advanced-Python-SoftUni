@@ -4,36 +4,37 @@ def check_player(counter):
     return second_player
 
 
-first_player, second_player = (n for n in input().split(', '))
+def sum_of_4(r, c):
+    return sum(map(int, (board[r][0], board[r][6], board[0][c], board[6][c])))
+
+
+first_player, second_player = input().split(', ')
+players = {first_player: 501, second_player: 501}
 board = [[x for x in input().split(" ")] for _ in range(7)]
 count = 0
-pl_1_points = 501
-pl_2_points = 501
-
 
 while True:
     row, col = eval(input())
     count += 1
     if row not in range(7) or col not in range(7):
         continue
+
     if board[row][col] == "B":
         break
     elif board[row][col] == "T":
-        points = 3 * sum([int(x) for x in [board[row][0], board[row][6], board[0][col], board[6][col]]])
+        points = 3 * sum_of_4(row, col)
     elif board[row][col] == "D":
-        points = 2 * sum([int(x) for x in [board[row][0], board[row][6], board[0][col], board[6][col]]])
+        points = 2 * sum_of_4(row, col)
     else:
         points = int(board[row][col])
-    if count % 2:
-        pl_1_points -= points
-    else:
-        pl_2_points -= points
-    if pl_2_points <= 0 or pl_1_points <= 0:
+
+    players[check_player(count)] -= points
+    if players[check_player(count)] <= 0:
         break
 
 winner = check_player(count)
 if winner == first_player:
-    count_turns = (count + 1) /2
+    count_turns = (count + 1) / 2
 else:
     count_turns = count / 2
 
