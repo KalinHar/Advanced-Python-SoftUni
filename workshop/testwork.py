@@ -43,74 +43,6 @@ def check_for_winner(i, j, num):
                     break
 
 
-# def check_for_winner(i, j, num):
-#     four_in_line = 1
-#     # check left-down and right-up diagonal
-#     for n in range(1, 4):
-#         if i + n in range(r) and j - n in range(c) and game_board[i + n][j - n] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             break
-#     for n in range(1, 4):
-#         if i - n in range(r) and j + n in range(c) and game_board[i - n][j + n] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             four_in_line = 1
-#             break
-#     # check right-down and left-up diagonal
-#     for n in range(1, 4):
-#         if i + n in range(r) and j + n in range(c) and game_board[i + n][j + n] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             break
-#     for n in range(1, 4):
-#         if i - n in range(r) and j - n in range(c) and game_board[i - n][j - n] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             four_in_line = 1
-#             break
-#     # check horizontal
-#     for n in range(1, 4):
-#         if i in range(r) and j - n in range(c) and game_board[i][j - n] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             break
-#     for n in range(1, 4):
-#         if i in range(r) and j + n in range(c) and game_board[i][j + n] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             four_in_line = 1
-#             break
-#     # check vertical
-#     for n in range(1, 4):
-#         if i + n in range(r) and j in range(c) and game_board[i + n][j] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             break
-#     for n in range(1, 4):
-#         if i - n in range(r) and j in range(c) and game_board[i - n][j] == num:
-#             four_in_line += 1
-#             if four_in_line == 4:
-#                 return num
-#         else:
-#             four_in_line = 1
-#             break
-
-
 rows, columns = [int(x) for x in input().split()]
 game_board = [[0 for col in range(columns)] for row in range(rows)]
 free_row_in_columns = [rows - 1 for _ in range(columns)]
@@ -127,6 +59,5 @@ while True:
         break
     if turns == rows * columns:
         print("No winner!")
-        print_board()
         break
     turns += 1
