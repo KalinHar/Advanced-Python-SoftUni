@@ -1,0 +1,7 @@
+file = open("../files/asd.txt")
+content = file.read(4)
+content1 = file.read(7)
+print(content)
+print(content1)
+line = file.readlines()
+print(line)

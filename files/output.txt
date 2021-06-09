@@ -1,0 +1,51 @@
+is - 3
+quick - 2
+fault - 1
+Line 1: -I was quick to judge him, but it wasn't his fault. (37)(4)
+Line 2: -Is this some kind of joke?! Is it? (24)(4)
+Line 3: -Quick, hide here. It is safer. (22)(4)
+.html
+- - - index.html
+.py
+- - - 1-even-lines.py
+- - - 2-line-numbers.py
+- - - 3-file-manipulator.py
+- - - 4-directory-traversal.py
+- - - problem1.py
+- - - problem2.py
+- - - problem3.py
+- - - problem5.py
+- - - test001.py
+.txt
+- - - asd.txt
+- - - best.txt
+.html
+- - - index.html
+.py
+- - - 1-even-lines.py
+- - - 2-line-numbers.py
+- - - 3-file-manipulator.py
+- - - 4-directory-traversal.py
+- - - problem1.py
+- - - problem2.py
+- - - problem3.py
+- - - problem5.py
+- - - test001.py
+.txt
+- - - asd.txt
+- - - best.txt
+.html
+- - - index.html
+.py
+- - - 1-even-lines.py
+- - - 2-line-numbers.py
+- - - 3-file-manipulator.py
+- - - 4-directory-traversal.py
+- - - problem1.py
+- - - problem2.py
+- - - problem3.py
+- - - problem5.py
+- - - test001.py
+.txt
+- - - asd.txt
+- - - best.txt
