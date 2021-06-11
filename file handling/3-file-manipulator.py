@@ -24,12 +24,12 @@ def replace(f_name, old_str, new_str):
 
 def delete(f_name):
     try:
-        os.remove(f"{f_name}")
+        os.remove(f_name)
     except FileNotFoundError:
         print("An error occurred")
 
 
-command = input()
+command = input()  # for line in iter(input(), "End")
 while command != "End":
     action, file_name, *data = command.split("-")
     if action == "Create":
