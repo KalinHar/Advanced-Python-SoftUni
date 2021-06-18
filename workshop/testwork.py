@@ -11,7 +11,7 @@ def get_turn(turn, free_r_in_c):
         number_of_column = input()
         if number_of_column.isnumeric():
             number_of_column = int(number_of_column) - 1
-            if  number_of_column in range(rows) \
+            if number_of_column in range(rows) \
                     and free_r_in_c[number_of_column] >= 0:
                 return free_r_in_c[number_of_column], number_of_column, player
         print("Invalid column index!")
@@ -26,12 +26,16 @@ def print_board():
     [print(row) for row in game_board]
 
 
+def positions(r, c):
+    return [[i*r, i*c] for i in range(1, N)]
+
+
 def check_for_winner(i, j, num):
     winning_lines = [
-        [[[+1, -1], [+2, -2], [+3, -3]], [[-1, +1], [-2, +2], [-3, +3]]],  # diagonal: left,down - right,up
-        [[[+1, +1], [+2, +2], [+3, +3]], [[-1, -1], [-2, -2], [-3, -3]]],  # diagonal: right,down - left,up
-        [[[0, -1], [0, -2], [0, -3]], [[0, +1], [0, +2], [0, +3]]],        # horizontal: left - right
-        [[[+1, 0], [+2, 0], [+3, 0]], [[-1, 0], [-2, 0], [-3, 0]]],        # vertical: down - !(up)
+        [positions(*DL), positions(*UR)],  # primary diagonal: down-left half, up-right half
+        [positions(*DR), positions(*UL)],  # secondary diagonal: down-right half, up-left half
+        [positions(*LL), positions(*RR)],  # horizontal: left half, right half
+        [positions(*DD)]                   # vertical: down half
     ]
     for line in winning_lines:
         four_in_line = 1
@@ -45,6 +49,9 @@ def check_for_winner(i, j, num):
                 else:
                     break
 
+
+N = 4  # N-consistent in line
+DL, UR, DR, UL, LL, RR, DD = (1, -1), (-1, 1), (1, 1), (-1, -1), (0, -1), (0, 1), (1, 0)
 
 rows, columns = [int(x) for x in input().split()]
 game_board = [[0 for col in range(columns)] for row in range(rows)]
