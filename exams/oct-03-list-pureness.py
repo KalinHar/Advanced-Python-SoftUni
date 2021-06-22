@@ -3,7 +3,9 @@ def best_list_pureness(*numbers):
     nums, k_times = numbers
     nums = deque(nums)
     pureness = {}
-    for k in range(k_times + 1):
+    for k in range(k_times):
+        if k == len(nums):
+            break
         pure = sum([i*n for i, n in enumerate(nums)])
         if pure not in pureness:
             pureness[pure] = k
